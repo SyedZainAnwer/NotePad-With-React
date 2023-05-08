@@ -1,6 +1,7 @@
 import { SetStateAction, useState } from "react"
 import AddNote from "../../components/AddNote"
 import AddTitle from "../../components/AddTitle"
+import SavedNotes from "../../components/savedNotes/SavedNotes"
 import '../Notes/notes.css'
 
 const Notes = () => {
@@ -8,9 +9,10 @@ const Notes = () => {
 
   return (
     <div>
-      <AddTitle handleTitle = {(title: SetStateAction<string>) => setTitle(title) }/>
+      <AddTitle isReminder={false} />
       <div className="add_note">
-      <AddNote title2={title}/>
+      {/* <AddNote title2={title}/> */}
+      <SavedNotes />
       </div>
     </div>
   )

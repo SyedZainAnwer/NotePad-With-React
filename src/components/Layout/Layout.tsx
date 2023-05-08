@@ -171,14 +171,15 @@ export default function Layout({ children }: propType) {
                 <List>
                     {navRoutes.map((navRoute, index) => (
                         <ListItem key={navRoute.route} disablePadding sx={{ display: 'block' }}>
-                            <Link to={navRoute.route}>
+                            <Link to={navRoute.route} className="onHover">
                                 <ListItemButton
                                     sx={{
                                         minHeight: 48,
                                         justifyContent: open ? 'initial' : 'center',
                                         px: 2.5,
-                                        background: navRoute.route === location.pathname ? 'seagreen' : 'white'
+                                        background: navRoute.route === location.pathname ? '#1976d2' : 'white'
                                     }}
+                                    className="onHover"
                                 >
                                     <ListItemIcon
                                         sx={{

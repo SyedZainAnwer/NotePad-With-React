@@ -23,7 +23,7 @@ const pages:routeType[] = [
     id:1
   },
   {
-    path: '/reminders',
+    path: '/reminder',
     component: Reminders,
     id:2
   },
@@ -47,7 +47,7 @@ function App() {
       <Layout>
           <Routes>
             { pages.map((page) => (
-              <Route path={page.path} Component={page.component} />
+              <Route path={page.path} Component={page.component} key={page.id}/>
           ))}
           </Routes>
       </Layout>

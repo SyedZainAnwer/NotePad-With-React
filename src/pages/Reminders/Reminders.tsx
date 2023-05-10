@@ -1,4 +1,4 @@
-import AddTitle from '../../components/AddTitle'
+import AddTitle from '../../components/AddTitle/AddTitle'
 
 const Reminders = () => {
   return (

@@ -1,15 +1,11 @@
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Dayjs } from "dayjs";
-import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-import { MobileDateTimePicker } from "@mui/x-date-pickers/MobileDateTimePicker";
-import { DesktopDateTimePicker } from "@mui/x-date-pickers/DesktopDateTimePicker";
-import { StaticDateTimePicker } from "@mui/x-date-pickers/StaticDateTimePicker";
+import '../AddTitle/AddTitle.css'
 import { useState } from "react";
-import * as dayjs from "dayjs";
 
 interface propType {
   isReminder: boolean;
@@ -63,17 +59,12 @@ const TakeNote = ({ isReminder }: propType) => {
           onChange={handleNoteChange}
         />
 
-        <div
-          style={{
-            width: "50%",
-            display: "flex",
-          }}
-        >
+        <div className="add_area">
           <div>
             
-            {isReminder && (<LocalizationProvider dateAdapter={AdapterDayjs} >
+            {isReminder && (<LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DesktopDateTimePicker"]}>
-                  <DateTimePicker />
+                  <DateTimePicker className="date_time_picker"/>
               </DemoContainer>
             </LocalizationProvider>)}
           </div>

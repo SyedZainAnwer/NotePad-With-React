@@ -1,0 +1,14 @@
+.add_area {
+    width: 50%;
+    display: flex;
+}
+
+@media screen and (max-width: 845px){
+    .add_area{
+        display: block;
+    }
+
+    .date_time_picker{
+        min-width: 0 !important;
+    }
+}

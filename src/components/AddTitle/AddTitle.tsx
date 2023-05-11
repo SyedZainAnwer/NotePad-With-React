@@ -5,13 +5,16 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import '../AddTitle/AddTitle.css'
+import axios from 'axios'
+import {INote} from '../../interfaces/index'
 import { useState } from "react";
 
 interface propType {
-  isReminder: boolean;
+  isReminder: boolean,
+  addRecentNote: (note:INote) => void 
 }
 
-const TakeNote = ({ isReminder }: propType) => {
+const TakeNote = ({ isReminder, addRecentNote }: propType) => {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
 
@@ -23,10 +26,17 @@ const TakeNote = ({ isReminder }: propType) => {
     setNote(e.target.value);
   };
 
-  const handleSubmit = () => {
-    console.log(title, note);
+  const AddNote = async() => {
+    // console.log(title, note);
+    const response = await axios.post('http://localhost:5000/notes', {
+      title,
+      description: note,
+      status: 'note'
+    })
     setNote("");
     setTitle("");
+    addRecentNote(response.data.data);
+    console.log(response.data)
   };
 
   return (
@@ -48,6 +58,7 @@ const TakeNote = ({ isReminder }: propType) => {
           style={{ width: "50%", marginBottom: "10px" }}
           value={title}
           onChange={handleTitleChange}
+          className='input_text'
         />
         <TextField
           id="outlined-multiline-flexible"
@@ -57,6 +68,7 @@ const TakeNote = ({ isReminder }: propType) => {
           style={{ width: "50%" }}
           value={note}
           onChange={handleNoteChange}
+          className='input_text'
         />
 
         <div className="add_area">
@@ -75,13 +87,14 @@ const TakeNote = ({ isReminder }: propType) => {
               justifyContent: "right",
               marginTop: "8px",
             }}
+            className='add_btn'
           >
             <div>
               <Button
                 variant="contained"
                 color="primary"
                 style={{ padding: "7px 30px 7px 30px" }}
-                onClick={handleSubmit}
+                onClick={AddNote}
               >
                 Add
               </Button>

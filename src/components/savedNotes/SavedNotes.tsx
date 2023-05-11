@@ -4,26 +4,21 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { INote } from "../../interfaces";
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
+interface propType{
+  note: INote
+}
 
-export default function SavedNotes() {
+export default function SavedNotes({note}:propType) {
   return (
-    // <div style={{display:"flex", justifyContent:"center"}}>
-    <Card sx={{ width: 275 }}>
+    <Card sx={{ width: 275, marginRight:"20px", marginTop:"20px" }}>
       <CardContent>
         <Typography variant="h6" component="div">
-          Title :
+          {note.title}
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          description
+          {note.description}
         </Typography>
         <CardActions>
           <div style={{width:"100%", display:"flex",justifyContent:"flex-end"}}>

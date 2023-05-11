@@ -11,4 +11,12 @@
     .date_time_picker{
         min-width: 0 !important;
     }
+
+    .input_text{
+        width: 75% !important;
+    }
+
+    .add_btn{
+        width: 125% !important;
+    }
 }

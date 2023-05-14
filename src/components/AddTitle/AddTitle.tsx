@@ -36,7 +36,7 @@ const TakeNote = ({ isReminder, addRecentNote }: propType) => {
     setNote("");
     setTitle("");
     addRecentNote(response.data.data);
-    console.log(response.data)
+    // console.log(response.data)
   };
 
   return (

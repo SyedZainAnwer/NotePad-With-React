@@ -1,4 +1,9 @@
-.onHover:hover {
+/* .onHover:hover {
     background-color: #1976d2 !important;
     color: red !important;
+} */
+
+.css-10aw2f0-MuiButtonBase-root-MuiListItemButton-root:hover {
+    background-color: red !important;
+    text-decoration: underline !important;
 }

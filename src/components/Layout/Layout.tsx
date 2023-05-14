@@ -142,7 +142,7 @@ export default function Layout({ children }: propType) {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open}>
+            <AppBar position="fixed" open={open} style={{backgroundColor:"#3366CC"}}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -177,7 +177,7 @@ export default function Layout({ children }: propType) {
                                         minHeight: 48,
                                         justifyContent: open ? 'initial' : 'center',
                                         px: 2.5,
-                                        background: navRoute.route === location.pathname ? '#1976d2' : 'white'
+                                        background: navRoute.route === location.pathname ? '#3399FF' : 'white'
                                     }}
                                     className="onHover"
                                 >

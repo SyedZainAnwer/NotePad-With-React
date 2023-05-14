@@ -21,7 +21,7 @@ const Notes = () => {
   const addRecentNote = (note:INote) =>{
     setNotes([...notes, note]);
   }
-  console.log(notes)
+  // console.log(notes)
   useEffect(()=> {
     fetchNotes();
   },[])
@@ -30,7 +30,7 @@ const Notes = () => {
     <div>
       <AddTitle addRecentNote={addRecentNote} isReminder={false} />
       <div className="add_note">
-        {notes.map((note)=> <SavedNotes note={note} key={note._id} />)}
+        {notes.map((note)=> <SavedNotes note={note} key={note._id} archiveButton={true} />)}
       </div>
     </div>
   )

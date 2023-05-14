@@ -6,13 +6,14 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { INote } from "../../interfaces";
 
-interface propType{
-  note: INote
+interface propType {
+  archiveButton: boolean;
+  note: INote;
 }
 
-export default function SavedNotes({note}:propType) {
+export default function SavedNotes({ note, archiveButton }: propType) {
   return (
-    <Card sx={{ width: 275, marginRight:"20px", marginTop:"20px" }}>
+    <Card sx={{ width: 275, marginRight: "20px", marginTop: "20px" }}>
       <CardContent>
         <Typography variant="h6" component="div">
           {note.title}
@@ -21,11 +22,25 @@ export default function SavedNotes({note}:propType) {
           {note.description}
         </Typography>
         <CardActions>
-          <div style={{width:"100%", display:"flex",justifyContent:"flex-end"}}>
-          <Button variant="outlined" size="small" style={{marginRight:"10px"}}>Archive</Button>
-          <Button variant="outlined" color="error" size="small">
-            Delete
-          </Button>
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            {archiveButton && (
+              <Button
+                variant="outlined"
+                size="small"
+                style={{ marginRight: "10px" }}
+              >
+                Archive
+              </Button>
+            )}
+            <Button variant="outlined" color="error" size="small">
+              Delete
+            </Button>
           </div>
         </CardActions>
       </CardContent>

@@ -7,11 +7,11 @@ import Typography from "@mui/material/Typography";
 import { INote } from "../../interfaces";
 
 interface propType {
-  archiveButton: boolean;
   note: INote;
+  status?: INote["status"]
 }
 
-export default function SavedNotes({ note, archiveButton }: propType) {
+export default function SavedNotes({ note, status }: propType) {
   return (
     <Card sx={{ width: 275, marginRight: "20px", marginTop: "20px" }}>
       <CardContent>
@@ -29,18 +29,26 @@ export default function SavedNotes({ note, archiveButton }: propType) {
               justifyContent: "flex-end",
             }}
           >
-            {archiveButton && (
-              <Button
-                variant="outlined"
-                size="small"
-                style={{ marginRight: "10px" }}
-              >
-                Archive
-              </Button>
-            )}
-            <Button variant="outlined" color="error" size="small">
-              Delete
-            </Button>
+            {
+              status !== "trash" ? (
+
+                <>
+                  {status !== "archive" &&
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      style={{ marginRight: "10px" }}
+                    >
+                      Archive
+                    </Button>
+                  }
+                  <Button variant="outlined" color="error" size="small">
+                    Delete
+                  </Button>
+                </>
+              ) : null
+            }
+
           </div>
         </CardActions>
       </CardContent>

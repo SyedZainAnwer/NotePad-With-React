@@ -30,7 +30,7 @@ const Notes = () => {
     <div>
       <AddTitle addRecentNote={addRecentNote} isReminder={false} />
       <div className="add_note">
-        {notes.map((note)=> <SavedNotes note={note} key={note._id} archiveButton={true} />)}
+        {notes.map((note)=> <SavedNotes note={note} key={note._id} />)}
       </div>
     </div>
   )

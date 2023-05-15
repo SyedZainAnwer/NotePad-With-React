@@ -7,7 +7,7 @@ const Archive = () => {
   const [archiveNotes, setArchiveNotes] = useState<Array<INote>>([]);
 
   const fetchArchiveNotes = async () => {
-    const response = await axios.get("http://localhost:5000/", {params: { status: "archive" }});
+    const response = await axios.get("http://localhost:5000/notes", {params: { status: "archive" }});
     setArchiveNotes(response.data);
   };
 
@@ -19,9 +19,9 @@ const Archive = () => {
     <div className="archive_main">
       {archiveNotes.map((archiveNote) => (
         <SavedNotes
-          archiveButton={false}
           note={archiveNote}
           key={archiveNote._id}
+          status={'archive'}
         />
       ))}
     </div>
